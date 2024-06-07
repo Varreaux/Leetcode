@@ -7,7 +7,7 @@ string change (string title);
 
 int main (){
 
-    string str = "648. Replace Words";
+    string str = "155. Min Stack";
     string answer = change(str);
 
     cout<<answer<<endl<<endl;
@@ -16,7 +16,7 @@ int main (){
     cout<<"#include<string>"<<endl;
     cout<<"#include<vector>"<<endl;
     cout<<"#include<unordered_map>"<<endl<<endl;
-    cout<<"Using namespace std;"<<endl;
+    cout<<"using namespace std;"<<endl;
     cout<<endl<<endl;
     cout<<"int main () {"<<endl;
     cout<<"\tSolution sol;"<<endl<<endl;
