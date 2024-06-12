@@ -1,5 +1,4 @@
 #include<iostream>
-#include<string>
 #include<vector>
 #include<unordered_map>
 
@@ -27,6 +26,20 @@ public:
 		}
 		return nums.size();
     }
+
+	int removeDuplicates_V2(vector<int>& nums) {
+        unordered_map<int, int> m;
+		for(int i = 0; i < nums.size(); i++){
+			if(!m.count(nums[i])){
+				m[nums[i]]++;
+			}
+			else{
+				nums.erase(nums.begin()+i);
+				i--;
+			}
+		}
+		return nums.size();
+	}
 };
 
 int main () {
