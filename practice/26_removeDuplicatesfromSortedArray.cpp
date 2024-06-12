@@ -40,6 +40,17 @@ public:
 		}
 		return nums.size();
 	}
+
+	int removeDuplicates_V3(vector<int>& nums) {
+        unordered_map<int, int> m;
+		for(int i = 1; i < nums.size(); i++){
+			if(nums[i]==nums[i-1]){
+				nums.erase(nums.begin()+i);
+				i--;
+			}
+		}
+		return nums.size();
+	}
 };
 
 int main () {
