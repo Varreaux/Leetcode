@@ -1,3 +1,7 @@
+/*
+Each version is faster than the next but even the fastest one was not able to pass
+the final test case.
+*/
 #include<iostream>
 #include<vector>
 #include<list>
@@ -64,12 +68,46 @@ public:
         }
         return days;
     }
+	
+	vector<int> dailyTemperatures_v3(vector<int>& temperatures) {
+        vector<int> answer;
+        list<int> temps;
+        list<int> days;
+        int max = temperatures[temperatures.size()-1];
+        bool gotIt;
+        for(int i = temperatures.size()-1; i >= 0; i--){
+            if(temperatures[i]>=max){
+                days.push_front(0);
+                temps.push_front(temperatures[i]);
+                max = temperatures[i];
+                continue;
+            }
+            gotIt = false;
+            auto it = temps.begin();
+            for(int j = 0; j < temps.size(); j++){
+                if(*it>temperatures[i]){
+                    days.push_front(j+1);
+                    gotIt = true;
+                    break;
+                }
+                advance(it, 1);
+            }
+            if(!gotIt)
+                days.push_front(0);
+
+            temps.push_front(temperatures[i]);
+        }
+        for(auto it = days.begin(); it != days.end(); it++){
+            answer.push_back(*it);
+        }
+        return answer;
+    }
 };
 
 int main () {
 	Solution sol;
 	vector<int> temperatures = {73,74,75,71,69,72,76,73};
-	vector<int> answer = sol.dailyTemperatures(temperatures);
+	vector<int> answer = sol.dailyTemperatures_v3(temperatures);
 	for(int num : answer)
 		cout<<num;
 	return 0;
