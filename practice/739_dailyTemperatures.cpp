@@ -37,12 +37,38 @@ public:
         return days;
     }
 
+	vector<int> dailyTemperatures_v2(vector<int>& temperatures) {
+        vector<int> temps;
+        vector<int> days;
+        int max = temperatures[temperatures.size()-1];
+        bool gotIt;
+        for(int i = temperatures.size()-1; i >= 0; i--){
+            if(temperatures[i]>=max){
+                days.insert(days.begin(),0);
+                temps.insert(temps.begin(),temperatures[i]);
+                max = temperatures[i];
+                continue;
+            }
+            gotIt = false;
+            for(int j = 0; j < temps.size(); j++){
+                if(temps[j]>temperatures[i]){
+                    days.insert(days.begin(),j+1);
+                    gotIt = true;
+                    break;
+                }
+            }
+            if(!gotIt)
+                days.insert(days.begin(),0);
+
+            temps.insert(temps.begin(),temperatures[i]);
+        }
+        return days;
+    }
 };
 
 int main () {
 	Solution sol;
 	vector<int> temperatures = {73,74,75,71,69,72,76,73};
-	//[1,1,4,2,1,1,0,0]
 	vector<int> answer = sol.dailyTemperatures(temperatures);
 	for(int num : answer)
 		cout<<num;
