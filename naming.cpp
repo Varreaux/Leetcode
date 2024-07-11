@@ -8,10 +8,10 @@ string change (string title);
 
 int main (){
 
-    string str = "633. Sum of Square Numbers";
+    string str = "219. Contains Duplicate II";
     string answer = change(str);
-    string realAnswer = "dailyStreak/" + answer; 
-    //string realAnswer = "practice/" + answer; 
+    //string realAnswer = "dailyStreak/" + answer; 
+    string realAnswer = "practice/" + answer; 
     
 
     ofstream outFile;
