@@ -8,7 +8,7 @@ string change (string title);
 
 int main (){
 
-    string str = "219. Contains Duplicate II";
+    string str = "643. Maximum Average Subarray I";
     string answer = change(str);
     //string realAnswer = "dailyStreak/" + answer; 
     string realAnswer = "practice/" + answer; 
