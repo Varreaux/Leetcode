@@ -13,3 +13,12 @@ public:
         return -1;
     }
 };
+
+//PYTHON:
+// class Solution:
+//     def strStr(self, haystack: str, needle: str) -> int:
+//         dis = len(needle)
+//         if(dis>len(haystack)): return -1
+//         for index, char in enumerate(haystack):
+//             if needle == haystack[index:index+dis]: return index
+//         return -1
