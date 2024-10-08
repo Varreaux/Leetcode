@@ -11,3 +11,16 @@ public:
         return count;
     }
 };
+
+//PYTHON VERSION
+
+// class Solution:
+//     def lengthOfLastWord(self, s: str) -> int:
+//         k = len(s)-1
+//         count = 0
+//         while not s[k].isalpha():
+//             k-=1
+//         while k>=0 and s[k].isalpha():
+//             k-=1
+//             count+=1
+//         return count     
