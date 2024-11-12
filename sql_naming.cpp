@@ -8,7 +8,7 @@ string change (string title);
 
 int main (){
 
-    string str = "1757. Recyclable and Low Fat Products";
+    string str = "197. Rising Temperature";
     string answer = change(str);
     string realAnswer = "SQL/" + answer; 
     
