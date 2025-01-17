@@ -5,7 +5,20 @@ using namespace std;
 
 class Solution {
 public:
+
     int maxArea(vector<int>& height) {
+        int i = 0, j = height.size()-1, maxy = 0;
+        while(i < j){
+            int small = min(height[i], height[j]);
+            int water = small * (j-i);
+            if(water>maxy)
+                maxy = water;
+            (small == height[i]) ? i++ : j--;
+        }
+        return maxy;
+    }
+
+    int maxArea_old_version(vector<int>& height) {
         int i = 0;
         int j = height.size()-1;
         int counter = height.size()-1;
