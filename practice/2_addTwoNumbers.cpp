@@ -13,7 +13,42 @@ struct ListNode {
 
 class Solution {
 public:
-    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+
+	ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        vector<int> num1;
+        ListNode* node = l1;
+        while (node != nullptr){
+            num1.push_back(node->val);
+            node = node->next;
+        }
+        vector<int> num2;
+        node = l2;
+        while (node != nullptr){
+            num2.push_back(node->val);
+            node = node->next;
+        }
+        
+        int num = num1[0] + num2[0];
+        int rest = num>=10 ? 1: 0;
+        ListNode* l3 = new ListNode(num%10);
+        node = l3;
+        for(int i =1; i< max(num1.size(), num2.size()); i++){
+            if(i<num1.size()&&i<num2.size())
+                num = num1[i] + num2[i] + rest;
+            else if(i<num1.size())
+                num = num1[i] + rest;
+            else
+                num = num2[i] + rest;
+            
+            rest = num>=10 ? 1: 0;
+            node->next = new ListNode(num%10);
+            node = node->next;
+        }
+        if(rest) node->next = new ListNode(rest);
+        return l3;
+    }
+
+    ListNode* addTwoNumbers_old(ListNode* l1, ListNode* l2) {
         long long num1 =0, counter = 0;
         ListNode* node = l1;
         while (node != nullptr){
@@ -40,10 +75,3 @@ public:
         return l3;
     }
 };
-
-
-int main () {
-	Solution sol;
-
-	return 0;
-}
