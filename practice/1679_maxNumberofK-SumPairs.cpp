@@ -1,4 +1,5 @@
 #include<vector>
+#include<unordered_map>
 using namespace std;
 
 class Solution {
@@ -13,6 +14,19 @@ public:
             else{
                 i++;j--;count++;
             }
+        }
+        return count;
+    }
+	//n?
+	int maxOperationsV2(vector<int>& nums, int k) {
+        unordered_map<int,int> m ={};
+        int i = 0, count=0;
+        for(int num: nums){
+            if(m[k-num]){
+                count++;
+                m[k-num]--;
+            }
+            else{m[num]++;}
         }
         return count;
     }
