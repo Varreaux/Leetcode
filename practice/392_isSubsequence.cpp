@@ -17,4 +17,16 @@ public:
         }
         return true;
     }
+    
+    bool isSubsequence(string s, string t) {
+        int i = 0, j = 0;
+        while(i < s.length()){
+            while(j<t.length()){
+                if(s[i]==t[j++]){if(i == s.length()-1) return true; break;}
+            }
+            if (j==t.length()) return false;
+            i++;
+        }
+        return true;
+    }
 };
