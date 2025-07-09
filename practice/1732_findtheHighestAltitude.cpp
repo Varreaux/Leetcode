@@ -11,4 +11,11 @@ public:
         }
         return maxy;
     }
+
+    //redid this one in one line
+    int largestAltitudev2(vector<int>& gain) {
+        int sum = 0, max = 0;
+        for(int g : gain) max = (sum+=g)>max ? sum : max;
+        return max;
+    }
 };
