@@ -17,4 +17,11 @@ public:
         }
         return true;
     }
+    //slighly different
+    bool uniqueOccurrences(vector<int>& arr) {
+        unordered_map<int, int> map1, map2;
+        for(int ar:arr){map1[ar]++;}
+        for(auto itt = map1.begin(); itt!=map1.end(); ++itt){if(map2.count(itt->second)){return false;}else{map2[itt->second]++;}}
+        return true;
+    }
 };
